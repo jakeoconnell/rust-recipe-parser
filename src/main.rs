@@ -133,7 +133,7 @@ async fn add_recipe_to_neo4j(
 async fn main() -> Result<(), Box<dyn Error>> {
     let graph = Graph::new("bolt://10.144.2.189:7687", "neo4j", "HAHAHA").await?;
 
-    let mut rdr = Reader::from_path("RAW_recipes.csv")?;
+    let mut rdr = Reader::from_path("data/RAW_recipes.csv")?;
 
     for result in rdr.deserialize() {
         let recipe: Recipe = result?;
